@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>How to create a flip effect with CSS3 transforms</title>
+	<style>
+@import url(http://fonts.googleapis.com/css?family=Pacifico);
+img {
+  border-radius: 10px;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.5);
+}
+h1 {
+  color: #1C1C1C;
+  font-family: 'Pacifico', arial;
+  font-weight: bold;
+  font-size: 24px;
+  text-align: center;
+}
+section{
+  width: 200px;
+  height: 300px;
+  margin: 10px auto 0;
+  -webkit-perspective: 500;
+  perspective: 500;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 1.5s;
+  transition: transform 1.5s;
+}
+div {
+  display: block;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+}
+section:hover {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+body {
+  background-color: #6d695c;
+background-image:
+-webkit-linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+background-image:
+repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));,
+linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+background-size: 70px 120px;
+}
+</style>
+</head>
+<body>
+<section>
+  <div class="front">
+    <h1>My Cat</h1>
+    <img src="300.jpg">
+  </div>
+  <div class="back">
+    <h1>My other cat</h1>
+    <img src="200.jpg">
+  </div>
+</section>
+</body>
+</html>
